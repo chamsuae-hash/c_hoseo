@@ -7,7 +7,7 @@
 
 typedef struct {
     int id;
-    char name[50];
+    char name[50]
     int price;
     int stock;
     int sold;
@@ -22,16 +22,16 @@ int main() {
     int price;
 
     while (1) {
-        printf("\n1. ÀÔ°í\n2. ÆÇ¸Å\n3. °³º°ÇöÈ²\n4. ÀüÃ¼ÇöÈ²\n5. Á¾·á\n");
-        printf("¸Ş´º ¼±ÅÃ: ");
+        printf("\n1. ì…ê³ \n2. íŒë§¤\n3. ê°œë³„í˜„í™©\n4. ì „ì²´í˜„í™©\n5. ì¢…ë£Œ\n");
+        printf("ë©”ë‰´ ì„ íƒ: ");
         scanf("%d", &menu);
 
         if (menu == 1) {
             if (count >= MAX) {
-                printf("»óÇ°ÀÌ ²Ë Ã¡½À´Ï´Ù.\n");
+                printf("ìƒí’ˆì´ ê½‰ ì°¼ìŠµë‹ˆë‹¤.\n");
                 continue;
             }
-            printf("»óÇ°ID: ");
+            printf("ìƒí’ˆID: ");
             scanf("%d", &id);
             int found = -1;
             for (int i = 0; i < count; i++) {
@@ -39,36 +39,36 @@ int main() {
             }
             if (found == -1) {
                 p[count].id = id;
-                printf("»óÇ°¸í: ");
+                printf("ìƒí’ˆëª…: ");
                 scanf("%s", p[count].name);
-                printf("ÀÔ°í¼ö·®: ");
+                printf("ì…ê³ ìˆ˜ëŸ‰: ");
                 scanf("%d", &p[count].stock);
-                printf("ÆÇ¸Å°¡°İ: ");
+                printf("íŒë§¤ê°€ê²©: ");
                 scanf("%d", &p[count].price);
                 p[count].sold = 0;
                 count++;
             }
             else {
-                printf("ÀÔ°í¼ö·® Ãß°¡: ");
+                printf("ì…ê³ ìˆ˜ëŸ‰ ì¶”ê°€: ");
                 scanf("%d", &qty);
                 p[found].stock += qty;
             }
         }
         else if (menu == 2) {
-            printf("»óÇ°ID: ");
+            printf("ìƒí’ˆID: ");
             scanf("%d", &id);
             int found = -1;
             for (int i = 0; i < count; i++) {
                 if (p[i].id == id) found = i;
             }
             if (found == -1) {
-                printf("¾ø´Â »óÇ°ÀÔ´Ï´Ù.\n");
+                printf("ì—†ëŠ” ìƒí’ˆì…ë‹ˆë‹¤.\n");
             }
             else {
-                printf("ÆÇ¸Å¼ö·®: ");
+                printf("íŒë§¤ìˆ˜ëŸ‰: ");
                 scanf("%d", &qty);
                 if (qty > p[found].stock) {
-                    printf("Àç°í°¡ ºÎÁ·ÇÕ´Ï´Ù.\n");
+                    printf("ì¬ê³ ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
                 }
                 else {
                     p[found].stock -= qty;
@@ -77,35 +77,36 @@ int main() {
             }
         }
         else if (menu == 3) {
-            printf("»óÇ°ID: ");
+            printf("ìƒí’ˆID: ");
             scanf("%d", &id);
             int found = -1;
             for (int i = 0; i < count; i++) {
                 if (p[i].id == id) found = i;
             }
             if (found == -1) {
-                printf("¾ø´Â »óÇ°ÀÔ´Ï´Ù.\n");
+                printf("ì—†ëŠ” ìƒí’ˆì…ë‹ˆë‹¤.\n");
             }
             else {
-                printf("»óÇ°¸í: %s, °¡°İ: %d, Àç°í: %d, ÆÇ¸Å·®: %d\n",
+                printf("ìƒí’ˆëª…: %s, ê°€ê²©: %d, ì¬ê³ : %d, íŒë§¤ëŸ‰: %d\n",
                     p[found].name, p[found].price, p[found].stock, p[found].sold);
             }
         }
         else if (menu == 4) {
             for (int i = 0; i < count; i++) {
-                printf("[%d] %s / °¡°İ:%d / Àç°í:%d / ÆÇ¸Å:%d / ÃÑ¸ÅÃâ:%d\n",
+                printf("[%d] %s / ê°€ê²©:%d / ì¬ê³ :%d / íŒë§¤:%d / ì´ë§¤ì¶œ:%d\n",
                     p[i].id, p[i].name, p[i].price, p[i].stock, p[i].sold,
                     p[i].price * p[i].sold);
             }
         }
         else if (menu == 5) {
-            printf("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.\n");
+            printf("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n");
             break;
         }
         else {
-            printf("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.\n");
+            printf("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.\n");
         }
     }
     return 0;
 }
+
 */
