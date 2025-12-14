@@ -12,51 +12,51 @@ int main() {
     int choice;
 
     for (int i = 0; i < MAX; i++) {
-        sprintf(names[i], "»óÇ°%d", i + 1);
+        sprintf(names[i], "ìƒí’ˆ%d", i + 1);
     }
 
     while (1) {
-        printf("\n===== ¼îÇÎ¸ô Àç°í °ü¸® =====\n");
-        printf("1. ÀÔ°í\n");
-        printf("2. ÆÇ¸Å\n");
-        printf("3. »óÇ°ÇöÈ²\n");
-        printf("4. »óÇ°¸í ÀÔ·Â\n");
-        printf("5. Á¾·á\n");
-        printf("¸Ş´º ¼±ÅÃ: ");
+        printf("\n===== ì‡¼í•‘ëª° ì¬ê³  ê´€ë¦¬ =====\n");
+        printf("1. ì…ê³ \n");
+        printf("2. íŒë§¤\n");
+        printf("3. ìƒí’ˆí˜„í™©\n");
+        printf("4. ìƒí’ˆëª… ì…ë ¥\n");
+        printf("5. ì¢…ë£Œ\n");
+        printf("ë©”ë‰´ ì„ íƒ: ");
         scanf("%d", &choice);
 
         if (choice == 1) {
             int id, amount;
-            printf("ÀÔ°íÇÒ »óÇ° ID(1~5): ");
+            printf("ì…ê³ í•  ìƒí’ˆ ID(1~5): ");
             scanf("%d", &id);
-            printf("ÀÔ°í ¼ö·®: ");
+            printf("ì…ê³  ìˆ˜ëŸ‰: ");
             scanf("%d", &amount);
             if (id >= 1 && id <= MAX) {
                 stock[id - 1] += amount;
-                printf("%s ÀÔ°í ¿Ï·á! ÇöÀç Àç°í: %d\n", names[id - 1], stock[id - 1]);
+                printf("%s ì…ê³  ì™„ë£Œ! í˜„ì¬ ì¬ê³ : %d\n", names[id - 1], stock[id - 1]);
             }
             else {
-                printf("Àß¸øµÈ »óÇ° ID!\n");
+                printf("ì˜ëª»ëœ ìƒí’ˆ ID!\n");
             }
         }
         else if (choice == 2) {
             int id, amount;
-            printf("ÆÇ¸ÅÇÒ »óÇ° ID(1~5): ");
+            printf("íŒë§¤í•  ìƒí’ˆ ID(1~5): ");
             scanf("%d", &id);
-            printf("ÆÇ¸Å ¼ö·®: ");
+            printf("íŒë§¤ ìˆ˜ëŸ‰: ");
             scanf("%d", &amount);
             if (id >= 1 && id <= MAX) {
                 if (stock[id - 1] >= amount) {
                     stock[id - 1] -= amount;
                     sold[id - 1] += amount;
-                    printf("%s ÆÇ¸Å ¿Ï·á! ³²Àº Àç°í: %d\n", names[id - 1], stock[id - 1]);
+                    printf("%s íŒë§¤ ì™„ë£Œ! ë‚¨ì€ ì¬ê³ : %d\n", names[id - 1], stock[id - 1]);
                 }
                 else {
-                    printf("Àç°í ºÎÁ·! ÇöÀç Àç°í: %d\n", stock[id - 1]);
+                    printf("ì¬ê³  ë¶€ì¡±! í˜„ì¬ ì¬ê³ : %d\n", stock[id - 1]);
                 }
             }
             else {
-                printf("Àß¸øµÈ »óÇ° ID!\n");
+                printf("ì˜ëª»ëœ ìƒí’ˆ ID!\n");
             }
         }
         else if (choice == 3) {
@@ -65,15 +65,15 @@ int main() {
                 totalStock += stock[i];
                 totalSold += sold[i];
             }
-            printf("\n--- »óÇ°ÇöÈ² ---\n");
-            printf("Àç°í¼ö·®: ");
+            printf("\n--- ìƒí’ˆí˜„í™© ---\n");
+            printf("ì¬ê³ ìˆ˜ëŸ‰: ");
             for (int i = 0; i < MAX; i++) {
                 printf("%d ", stock[i]);
             }
-            printf("\nÃÑ ÆÇ¸Å·®: %d\n", totalSold);
+            printf("\nì´ íŒë§¤ëŸ‰: %d\n", totalSold);
             if (totalStock + totalSold > 0) {
                 double rate = (double)totalSold / (totalStock + totalSold) * 100;
-                printf("ÆÇ¸ÅÀ²: %.2f%%\n", rate);
+                printf("íŒë§¤ìœ¨: %.2f%%\n", rate);
             }
 
             int maxIdx = 0, minIdx = 0;
@@ -81,23 +81,23 @@ int main() {
                 if (sold[i] > sold[maxIdx]) maxIdx = i;
                 if (sold[i] < sold[minIdx]) minIdx = i;
             }
-            printf("°¡Àå ¸¹ÀÌ ÆÇ¸ÅµÈ »óÇ°: ID %d, %s, ÆÇ¸Å·® %d\n",
+            printf("ê°€ì¥ ë§ì´ íŒë§¤ëœ ìƒí’ˆ: ID %d, %s, íŒë§¤ëŸ‰ %d\n",
                 maxIdx + 1, names[maxIdx], sold[maxIdx]);
-            printf("°¡Àå Àû°Ô ÆÇ¸ÅµÈ »óÇ°: ID %d, %s, ÆÇ¸Å·® %d\n",
+            printf("ê°€ì¥ ì ê²Œ íŒë§¤ëœ ìƒí’ˆ: ID %d, %s, íŒë§¤ëŸ‰ %d\n",
                 minIdx + 1, names[minIdx], sold[minIdx]);
         }
         else if (choice == 4) {
             for (int i = 0; i < MAX; i++) {
-                printf("ID %d »óÇ°¸í ÀÔ·Â: ", i + 1);
+                printf("ID %d ìƒí’ˆëª… ì…ë ¥: ", i + 1);
                 scanf("%s", names[i]);
             }
         }
         else if (choice == 5) {
-            printf("ÇÁ·Î±×·¥ Á¾·á!\n");
+            printf("í”„ë¡œê·¸ë¨ ì¢…ë£Œ!\n");
             break;
         }
         else {
-            printf("Àß¸øµÈ ¸Ş´º ¼±ÅÃ!\n");
+            printf("ì˜ëª»ëœ ë©”ë‰´ ì„ íƒ!\n");
         }
     }
     return 0;
